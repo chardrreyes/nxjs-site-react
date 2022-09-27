@@ -2,8 +2,8 @@ import { useRouter } from 'next/router';
 
 export default function Movie() {
      
-    const movieRouter = useRouter();
-    const movieId = movieRouter.query;
+    const movieRouter = useRouter()
+    const { id } = movieRouter.query
 
-    return <div>About {movieId}</div>
+    return <h1>About {movieId}</h1>
 }
