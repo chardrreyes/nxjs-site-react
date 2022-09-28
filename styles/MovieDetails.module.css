@@ -1,0 +1,48 @@
+.movie_wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.movie_details_container {
+    width: 500px;
+    background: #141414;
+}
+
+.movie_details_header {
+    display: flex;
+    flex-direction: column;
+}
+
+.movie_details_header {
+    display: flex;
+    flex-direction: column;
+}
+
+.movie_title_label {
+    text-align: center;
+}
+
+.movie_image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.movie_content {
+    display: flex;
+    margin-top: 2rem;
+}
+
+.movie_overview_details {
+    padding: 0.5rem;
+    font-size: 15px;
+}
+
+.movie_overview_details .movie_chronology {
+    margin-bottom: 1rem;
+}
+
+.movie_language span, .movie_genre span {
+    font-size: 10px;
+}

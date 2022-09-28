@@ -1,0 +1,57 @@
+.nav_content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    min-height: 7vh;
+    align-items: center;
+    z-index: 2;
+    background: transparent;
+    margin-bottom: 2rem;
+}
+
+.left_nav {
+    gap: 5px;
+    display: flex;
+}
+
+.left_nav span {
+
+}
+
+.right_nav {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    right: 4%;
+    top: 4%;
+    cursor: pointer;
+}
+
+.search_box {
+    width: 0;
+    opacity: 0;
+    transition: width 0.4s ease-in-out;
+}
+
+.search_box_expand {
+    width: 300px;
+    height: 3vh;
+    opacity: 1;
+    transition: all 0.4s ease-in-out;
+}
+
+.search_icon {
+    padding-top: 4px;
+}
+
+.nav_router {
+    cursor: pointer;    
+    opacity: 0;
+    transition: all 1s;
+}
+
+.nav_show {
+    opacity: 1;
+}

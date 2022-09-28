@@ -1,8 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import PopularMovies from './components/PopularMovies'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+
+export default function Home({movies}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -12,16 +14,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js! - Initial</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
+        {/* <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
             <p>Find in-depth information about Next.js features and API.</p>
@@ -49,8 +42,13 @@ export default function Home() {
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
-        </div>
+        </div> */}
+        <div className={styles.title}>What's Popular?</div>
+        <PopularMovies movieList={movies} />
       </main>
+      
+
+      
 
       <footer className={styles.footer}>
         <a
@@ -66,4 +64,14 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+export async function getServerSideProps(){
+  //I'm using .env.local API_KEY=moviedbapikey
+  const request = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`);
+  const apiData = await request.json();
+  console.log('Authored by Chard Reyes');
+  return {
+      props: {movies: apiData},
+  }
 }

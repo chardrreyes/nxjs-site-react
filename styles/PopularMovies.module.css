@@ -1,0 +1,83 @@
+.movie_root {
+    position: relative;
+}
+.movie_container, .movie_group {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0.3rem;
+}
+
+.movie_container {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    grid-auto-columns: 100%;
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+.movie_group {
+    grid-auto-columns: 1fr;
+}
+
+.movie_card_details {
+    height: 33px;
+    width: 100%;
+    position: absolute;
+    background: rgb(27,27,27, 0.5);
+    color: white;
+    bottom: 0;
+    transition: .5s;
+}
+
+.movie_card_details_title {
+    color: #ffffff;
+}
+
+.movie_card {
+    border-radius: 0.2vw;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition-duration: 0.9s;
+}
+
+
+.movie_card:hover > .movie_card_details {
+    height: 65px;
+    background: black;
+}
+
+
+.movie_card_details > span {
+    display: inline-block;
+}
+
+.movie_card > img  {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.control {
+    position: absolute;
+    z-index: 10;
+    height: 100%;
+    cursor: pointer;
+}
+
+.left {
+    top: 0;
+    left: 0;
+    padding-top: 2rem;
+}
+
+.right {
+    top: 0;
+    right: 0;
+    padding-top: 2rem;
+}
+
+.right:hover, .left:hover {
+    background-color: black;
+    opacity: 0.5;
+}
