@@ -13,7 +13,6 @@ export default function Movie() {
         searchMovie(movie);
     },[movie])
 
-    console.log(movieList);
     return (<>
         {movieList && 
             <PopularMovies movieList={movieList} />

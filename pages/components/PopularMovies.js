@@ -1,12 +1,10 @@
 import styles from '../../styles/PopularMovies.module.css';
-import { GrFormNext, GrFormPrevious} from "react-icons/gr";
+import { HiArrowSmRight, HiArrowSmLeft } from "react-icons/hi";
 import { IconContext } from "react-icons";
 import { useRef } from 'react';
 import Link from 'next/link';
 
-
 const PopularMovies = (props) => {
-    console.log(props);
     const imagePath = 'https://image.tmdb.org/t/p/w200';
     const dataY = [];
     const ref = useRef(null);
@@ -23,8 +21,8 @@ const PopularMovies = (props) => {
     return(
         <div className={styles.movie_root}>
             <div onClick={() => movieScroll(-(ref.current.scrollWidth / (dataY.length)))} className={`${styles.control} ${styles.left}`}>
-                <IconContext.Provider value={{ color: "blue", size: "5rem" }}>
-                    <GrFormPrevious />
+                <IconContext.Provider value={{ size: "5rem" }}>
+                    <HiArrowSmLeft />
                 </IconContext.Provider> 
             </div>
             <div className={styles.movie_container} ref={ref}>
@@ -51,15 +49,14 @@ const PopularMovies = (props) => {
 
             </div>
             <div onClick={() => movieScroll(ref.current.scrollWidth / (dataY.length))}  className={`${styles.control} ${styles.right}`}>
-                    <IconContext.Provider value={{ color: "blue", size: "5rem" }}>
-                        <GrFormNext />
+                    <IconContext.Provider value={{ size: "5rem" }}>
+                        <HiArrowSmRight />
                     </IconContext.Provider> 
             </div>
         </div>
     );
 
     function movieScroll(offset) {
-        console.log(offset)
         ref.current.scrollLeft += offset;
     }
 }

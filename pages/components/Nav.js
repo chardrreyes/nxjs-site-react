@@ -39,10 +39,9 @@ const Nav = () => {
         // function
         (value) => {
             setIsInitialized(true);
-            console.log(isInitiliazed);
         },
         // delay in ms
-        1500
+        1000
     );
 
     
@@ -52,9 +51,9 @@ const Nav = () => {
     
     return(
         <div className={styles.nav_content}>
-            <h2>TESTFLIX</h2>
+            <h2 className={isInitiliazed ? `${styles.nav_brand} ${styles.nav_show}`  : `${styles.nav_brand}`}>TESTFLIX</h2>
             <div className={styles.left_nav}>
-                <span className={`${isInitiliazed} ? ${styles.nav_router} ${styles.nav_show}  : ${styles.nav_router} `}><Link href="/">Home</Link></span>
+                <span className={isInitiliazed ? `${styles.nav_router} ${styles.nav_show}`  : `${styles.nav_router}`}><Link href="/">Home</Link></span>
             </div>
 
             <div className={styles.right_nav} >

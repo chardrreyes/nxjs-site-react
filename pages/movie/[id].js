@@ -24,7 +24,7 @@ export default function Movie({ movies }) {
                             {movies.overview}
                         </div>
                     </div>
-                    <div className='movie_other_details'>
+                    <div className={styles.movie_other_details}>
                         <div className={styles.movie_language}>
                             <span>Language:</span> {movies.spoken_languages.map((language, index) => (<span key={index}>{language.name},</span>))} <span>more</span>
                         </div>

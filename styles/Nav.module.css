@@ -15,9 +15,6 @@
     display: flex;
 }
 
-.left_nav span {
-
-}
 
 .right_nav {
     align-items: center;
@@ -46,12 +43,24 @@
     padding-top: 4px;
 }
 
-.nav_router {
+.nav_router, .nav_brand  {
     cursor: pointer;    
     opacity: 0;
+    filter: blur(3px);
+    transform: translateX(-100%);
     transition: all 1s;
+}
+
+.nav_router {
+    transition-delay: 250ms;
+}
+
+.nav_brand {
+    transition-delay: 500ms;
 }
 
 .nav_show {
     opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
 }

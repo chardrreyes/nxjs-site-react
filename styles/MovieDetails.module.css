@@ -31,7 +31,11 @@
 
 .movie_content {
     display: flex;
-    margin-top: 2rem;
+    margin-top: 2rem
+}
+
+.movie_content > * {
+    flex-basis: 100%;
 }
 
 .movie_overview_details {
@@ -45,4 +49,8 @@
 
 .movie_language span, .movie_genre span {
     font-size: 10px;
+}
+
+.movie_other_details {
+    flex-grow: 1;
 }
