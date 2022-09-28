@@ -29,11 +29,11 @@ const PopularMovies = (props) => {
             </div>
             <div className={styles.movie_container} ref={ref}>
                 {
-                    dataY.map((movies, index) => (
-                        <div className={styles.movie_group} id={`movie_gr_${index}`}  ref={ref}>
+                    dataY.map((movies, i) => (
+                        <div className={styles.movie_group} id={`movie_gr_${i}`}  ref={ref} key={i}>
                             {                    
-                                movies.map(movie => (
-                                    <Link href={`/movie/${movie.id}`}>
+                                movies.map((movie, index) => (
+                                    <Link href={`/movie/${movie.id}`} key={index}>
                                         <div className={styles.movie_card} key={movie.id}>
                                             
                                             <img className={styles.movie_image} src={`${imagePath}${movie.backdrop_path !== null ? movie.backdrop_path : movie.poster_path}`} />
