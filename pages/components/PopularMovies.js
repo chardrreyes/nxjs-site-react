@@ -12,7 +12,7 @@ const PopularMovies = (props) => {
     const ref = useRef(null);
     let dataX = [];
 
-    props.movieList.results.forEach(element => {
+    props.movieList?.results.forEach(element => {
         dataX.push(element);
         if(dataX.length >= 5) {
             dataY.push(dataX);
