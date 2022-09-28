@@ -14,7 +14,7 @@ export default function Home({movies}) {
       </Head>
 
       <main className={styles.main}>
-        <div className={styles.title}>What's Popular?</div>
+        <div className={styles.title}>What&apos;s Popular?</div>
         <PopularMovies movieList={movies} />
       </main>
       
