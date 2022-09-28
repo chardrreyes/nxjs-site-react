@@ -26,10 +26,10 @@ export default function Movie({ movies }) {
                     </div>
                     <div className='movie_other_details'>
                         <div className={styles.movie_language}>
-                            <span>Language:</span> {movies.spoken_languages.map((language) => (<span>{language.name},</span>))} <span>more</span>
+                            <span>Language:</span> {movies.spoken_languages.map((language, index) => (<span key={index}>{language.name},</span>))} <span>more</span>
                         </div>
                         <div className={styles.movie_genre}>
-                            <span>Genre:</span> {movies.genres.map((genre) => (<span>{genre.name},</span>))} <span>more</span>
+                            <span>Genre:</span> {movies.genres.map((genre, index) => (<span key={index}>{genre.name},</span>))} <span>more</span>
                         </div>
                     </div>
                 </div>
@@ -39,11 +39,9 @@ export default function Movie({ movies }) {
 }
 
 export async function getServerSideProps({params}){
-    console.log(params);
     //I'm using .env NEXT_PUBLIC_API_KEY=moviedbapikey
     const request = await fetch(`https://api.themoviedb.org/3/movie/${params.id}?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US`);
     const apiData = await request.json();
-    console.log(apiData);
 
     return {
         props: {movies: apiData},
