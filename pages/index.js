@@ -2,9 +2,10 @@ import Head from 'next/head'
 import Image from 'next/image'
 import PopularMovies from './components/PopularMovies'
 import styles from '../styles/Home.module.css'
+import LatestMovies from './components/LatestMovies'
 
 
-export default function Home({movies}) {
+export default function Home({popularMovies, latestMovies}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -14,12 +15,15 @@ export default function Home({movies}) {
       </Head>
 
       <main className={styles.main}>
-        <div className={styles.title}>What&apos;s Popular?</div>
-        <PopularMovies movieList={movies} />
+        <section className={styles.section_wrapper}>
+          <div className={styles.title}>What&apos;s Popular?</div>
+          <PopularMovies movieList={popularMovies} />
+        </section>
+        <section className={styles.section_wrapper}>
+          <div className={styles.title}>What&apos;s Latest?</div>
+          <LatestMovies movieList={latestMovies} />
+        </section>
       </main>
-      
-
-      
 
       <footer className={styles.footer}>
         <a
@@ -38,11 +42,20 @@ export default function Home({movies}) {
 }
 
 export async function getServerSideProps(){
-  //I'm using .env.local API_KEY=moviedbapikey
-  const request = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`);
-  const apiData = await request.json();
+  //I'm using .env.local NEXT_PUBLIC_API_URL=moviedbapikey
+  const requestPopularMovies = await fetch(`${process.env.NEXT_PUBLIC_API_URL}3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`);
+  const requestLatestMovies = await fetch(`${process.env.NEXT_PUBLIC_API_URL}3/movie/top_rated?api_key=${process.env.NEXT_PUBLIC_API_KEY}&language=en-US&page=1`);
+  
+  const dataLatestMovies = await requestLatestMovies.json();
+  const dataPopularMovies = await requestPopularMovies.json();
+
+  console.log(dataLatestMovies);
+
   console.log("Authored by Chard Reyes");
   return {
-      props: {movies: apiData},
+      props: {
+        popularMovies: dataPopularMovies,
+        latestMovies: dataLatestMovies
+      },
   }
 }

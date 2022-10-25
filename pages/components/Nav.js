@@ -1,5 +1,6 @@
 import styles from '../../styles/Nav.module.css';
-import { AiOutlineSearch } from "react-icons/ai";
+import { AiOutlineSearch, AiOutlineBell } from "react-icons/ai";
+import { CgProfile } from "react-icons/cg";
 import { IconContext } from "react-icons";
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
@@ -67,6 +68,27 @@ const Nav = () => {
                         <AiOutlineSearch />
                     </IconContext.Provider>
                 </span>
+                <span className={styles.notification_bell}>
+                    <IconContext.Provider className value={{ size: "1.5rem" }}>
+                            <AiOutlineBell />
+                    </IconContext.Provider>
+                    <span className={styles.notification_count}>
+                        1
+                    </span>
+                </span>
+
+                <span className={styles.notification_bell}>
+                    <IconContext.Provider className value={{ size: "1.5rem" }}>
+                        <CgProfile />
+                    </IconContext.Provider>
+                    
+                </span>
+                <span className={styles.notification_bell}>
+                    Login
+                </span>
+
+
+
 
             </div>
         </div>

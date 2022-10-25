@@ -19,11 +19,9 @@
 .right_nav {
     align-items: center;
     display: flex;
+    width: 100%;
     justify-content: flex-end;
-    position: absolute;
-    right: 4%;
-    top: 4%;
-    cursor: pointer;
+    padding-right: 1rem;
 }
 
 .search_box {
@@ -43,6 +41,19 @@
     padding-top: 4px;
 }
 
+.notification_bell {
+    margin-left: 1rem;
+}
+
+.notification_bell:hover {
+    animation: shake-bell 0.1s ease-in-out;
+}
+
+.notification_count {
+    font-size: 15px;
+    color: red;
+}
+
 .nav_router, .nav_brand  {
     cursor: pointer;    
     opacity: 0;
@@ -56,11 +67,87 @@
 }
 
 .nav_brand {
-    transition-delay: 500ms;
+    margin-left: 0.5rem;
+    text-shadow: -5px -5px #2DFFFE, 5px 5px #FF3A2D;
+    transition: 0.3s ease-out;
+    animation: burn-me 3s infinite;
 }
 
 .nav_show {
     opacity: 1;
     transform: translateX(0);
     filter: blur(0);
+}
+
+
+/* Animation Keyframe */
+@keyframes burn-me {
+    0% {
+        text-shadow: -0px -0px hsl(252, 100%, 50%), 0px 0px hsl(358, 90%, 63%);
+    }
+    90% {
+        text-shadow: -0px -0px hsl(252, 100%, 50%), 0px 0px hsl(358, 90%, 63%);
+    }
+    91% {
+        text-shadow: -5px -5px hsl(252, 100%, 50%), 5px 5px hsl(358, 90%, 63%);
+    }
+    92% {
+        text-shadow: -4px -1px hsl(252, 100%, 50%), 2px 1px hsl(358, 90%, 63%);
+    }
+    93% {
+        text-shadow: -2px -1px hsl(252, 100%, 50%), 4px 7px hsl(358, 90%, 63%);
+    }
+    94% {
+        text-shadow: 3px 1px hsl(252, 100%, 50%), 2px 3px hsl(358, 90%, 63%);
+    }
+    95% {
+        text-shadow: -1px -3px hsl(252, 100%, 50%), 7px 3px hsl(358, 90%, 63%);
+    }
+    96% {
+        text-shadow: 1px 5px hsl(252, 100%, 50%), -20px 5px hsl(358, 90%, 63%);
+    }
+    97% {
+        text-shadow: -10px -2px hsl(252, 100%, 50%), 2px 3px hsl(358, 90%, 63%);
+    }
+    98% {
+        text-shadow: 3px 1px hsl(252, 100%, 50%), -2px 5px hsl(358, 90%, 63%);
+    }
+    99% {
+        text-shadow: 1px 2px hsl(252, 100%, 50%), -2px -3px hsl(358, 90%, 63%);
+    }
+    
+}
+
+@keyframes shake-bell {
+    91% {
+        transform: rotate(25deg);
+    }
+
+    92% {
+        transform: rotate(45deg);
+    }
+
+    93% {
+        transform: rotate(25deg);
+    }
+
+    94% {
+        transform: rotate(0deg);
+    }
+
+    95% {
+        transform: rotate(-25deg);
+    }
+
+    96% {
+        transform: rotate(-45deg);
+    }
+
+    97% {
+        transform: rotate(-25deg);
+    }
+
+    98% {
+        transform: rotate(0deg);
+    }
 }

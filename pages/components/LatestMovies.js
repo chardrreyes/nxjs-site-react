@@ -1,26 +1,30 @@
-import styles from '../../styles/PopularMovies.module.css';
+import styles from '../../styles/LatestMovies.module.css';
 import { AiOutlineCaretRight, AiOutlineCaretLeft } from "react-icons/ai";
 import { IconContext } from "react-icons";
 import { useRef } from 'react';
 import Link from 'next/link';
 
-const PopularMovies = (props) => {
+const LatestMovies = (props) => {
     const imagePath = 'https://image.tmdb.org/t/p/w200';
-    const dataY = [];
+    const movieList = [];
     const ref = useRef(null);
-    let dataX = [];
+    let movieArray = [];
 
-    props.movieList?.results.forEach(element => {
-        dataX.push(element);
-        if(dataX.length >= 5) {
-            dataY.push(dataX);
-            dataX = [];
+    props?.movieList?.results.forEach(movie => {
+        movieArray.push(movie);
+        if(movieArray.length >= 5) {
+            movieList.push(movieArray);
+            movieArray = [];
         }
     });
 
+    // movieArray.push(props.movieList);
+    // movieList.push(props.movieList);
+    // console.log(movieList);
+
     return(
         <div className={styles.movie_root}>
-            <div onClick={() => movieScroll(-(ref.current.scrollWidth / (dataY.length)))} className={`${styles.control} ${styles.left}`}>
+            <div onClick={() => movieScroll(-(ref.current.scrollWidth / (movieList.length)))} className={`${styles.control} ${styles.left}`}>
                 <div className='icon-wrapper'>
                 <IconContext.Provider value={{ size: "7vw" }}>
                     <AiOutlineCaretLeft />
@@ -29,7 +33,7 @@ const PopularMovies = (props) => {
             </div>
             <div className={styles.movie_container} ref={ref}>
                 {
-                    dataY.map((movies, i) => (
+                    movieList.map((movies, i) => (
                         <div className={styles.movie_group} id={`movie_gr_${i}`}  ref={ref} key={i}>
                             {                    
                                 movies.map((movie, index) => (
@@ -53,11 +57,10 @@ const PopularMovies = (props) => {
             
 
             </div>
-            <div onClick={() => movieScroll(ref.current.scrollWidth / (dataY.length))}  className={`${styles.control} ${styles.right}`}>
+            <div onClick={() => movieScroll(ref.current.scrollWidth / (movieList.length))}  className={`${styles.control} ${styles.right}`}>
                 <div className='icon-wrapper'>
                     <IconContext.Provider value={{ size: "7vw" }}>
                         <AiOutlineCaretRight />
-                        
                     </IconContext.Provider> 
                 </div>
             </div>
@@ -69,4 +72,4 @@ const PopularMovies = (props) => {
     }
 }
 
-export default PopularMovies;
+export default LatestMovies;
