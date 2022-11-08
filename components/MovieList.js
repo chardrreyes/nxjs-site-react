@@ -37,7 +37,7 @@ const MovieList = (props) => {
                                     <Link href={`/movie/${movie.id}`} key={index}>
                                         <div className={styles.movie_card} key={movie.id}>
                                             {movie.poster_path !== null &&
-                                            <Image width={200} height={130} src={`${imagePath}${movie.backdrop_path !== null ? movie.backdrop_path : movie.poster_path}`} alt="Movie picture" />
+                                            <Image width={200} height={130} loader={() => `${imagePath}${movie.backdrop_path !== null ? movie.backdrop_path : movie.poster_path}`} src={`${imagePath}${movie.backdrop_path !== null ? movie.backdrop_path : movie.poster_path}`} alt="Movie picture" />
                                             }
                                             <div className={styles.movie_card_details}>
                                                 <span className={styles.movie_card_details_title}>{movie.title}</span>
