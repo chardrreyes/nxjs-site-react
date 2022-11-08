@@ -12,6 +12,7 @@ const Nav = () => {
     const [isFocused, setIsFocused] = useState(false);
     const [inputText, setInputText ] = useState(null);
     const [isInitiliazed, setIsInitialized] = useState(false);
+    const [isLogin, setIsLogin] = useState(false);
     const router = useRouter();
     const debounced = useDebouncedCallback(
         // function
@@ -77,23 +78,23 @@ const Nav = () => {
                         1
                     </span>
                     {/* <div className={styles.notification_container}>
-                        TEST
+                        TODO: Container for notification list
                     </div> */}
                 </span>
-
-                <span className={styles.notification_bell}>
-                    <IconContext.Provider className value={{ size: "1.5rem" }}>
-                        <CgProfile />
-                    </IconContext.Provider>
                     
-                </span>
-                <span className={styles.notification_bell}>
-                    Login
-                </span>
+                {isLogin && 
+                    <span className={styles.notification_bell}>
+                        <IconContext.Provider className value={{ size: "1.5rem" }}>
+                            <CgProfile />
+                        </IconContext.Provider>  
+                    </span>
+                }
 
-
-
-
+                {!isLogin && 
+                    <span className={styles.login_btn}>
+                        Login
+                    </span>
+                }
             </div>
         </div>
     );
