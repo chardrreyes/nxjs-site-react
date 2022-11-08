@@ -1,8 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import PopularMovies from './components/PopularMovies'
+import MovieList from '../components/MovieList'
 import styles from '../styles/Home.module.css'
-import LatestMovies from './components/LatestMovies'
 
 
 export default function Home({popularMovies, latestMovies}) {
@@ -17,11 +16,11 @@ export default function Home({popularMovies, latestMovies}) {
       <main className={styles.main}>
         <section className={styles.section_wrapper}>
           <div className={styles.title}>What&apos;s Popular?</div>
-          <PopularMovies movieList={popularMovies} />
+          <MovieList movieList={popularMovies} />
         </section>
         <section className={styles.section_wrapper}>
           <div className={styles.title}>What&apos;s Latest?</div>
-          <LatestMovies movieList={latestMovies} />
+          <MovieList movieList={latestMovies} />
         </section>
       </main>
 
@@ -48,8 +47,6 @@ export async function getServerSideProps(){
   
   const dataLatestMovies = await requestLatestMovies.json();
   const dataPopularMovies = await requestPopularMovies.json();
-
-  console.log(dataLatestMovies);
 
   console.log("Authored by Chard Reyes");
   return {

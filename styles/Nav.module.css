@@ -11,10 +11,10 @@
 }
 
 .left_nav {
-    gap: 5px;
     display: flex;
+    flex-direction: row;
+    gap: 1rem;
 }
-
 
 .right_nav {
     align-items: center;
@@ -63,14 +63,19 @@
 }
 
 .nav_router {
-    transition-delay: 250ms;
+    /* transition-delay: 250ms; */
+}
+.nav_router:hover {
+    /* margin-left: 0.5rem; */
+    transform: translateY(-5px);
+    animation: burn-shake 3s infinite;
 }
 
-.nav_brand {
+.nav_brand:hover {
     margin-left: 0.5rem;
     text-shadow: -5px -5px #2DFFFE, 5px 5px #FF3A2D;
     transition: 0.3s ease-out;
-    animation: burn-me 3s infinite;
+    animation: burn-shake 3s infinite;
 }
 
 .nav_show {
@@ -79,9 +84,16 @@
     filter: blur(0);
 }
 
+.notification_container {
+    position: absolute;
+    width: 300px;
+    border: 1px solid;
+    right: 0;
+    min-height: 50px;
+}
 
 /* Animation Keyframe */
-@keyframes burn-me {
+/* @keyframes burn-me {
     0% {
         text-shadow: -0px -0px hsl(252, 100%, 50%), 0px 0px hsl(358, 90%, 63%);
     }
@@ -114,6 +126,46 @@
     }
     99% {
         text-shadow: 1px 2px hsl(252, 100%, 50%), -2px -3px hsl(358, 90%, 63%);
+    }
+    
+} */
+
+@keyframes burn-shake {
+    0% {
+        text-shadow: -0px -0px hsl(252, 100%, 50%), 0px 0px hsl(358, 90%, 63%);
+    }
+    11% {
+        text-shadow: -0px -0px hsl(252, 100%, 50%), 0px 0px hsl(358, 90%, 63%);
+    }
+    12% {
+        text-shadow: -5px -5px hsl(252, 100%, 50%), 5px 5px hsl(358, 90%, 63%);
+    }
+    13% {
+        text-shadow: -4px -1px hsl(252, 100%, 50%), 2px 1px hsl(358, 90%, 63%);
+    }
+    14% {
+        text-shadow: -2px -1px hsl(252, 100%, 50%), 4px 7px hsl(358, 90%, 63%);
+    }
+    15% {
+        text-shadow: 3px 1px hsl(252, 100%, 50%), 2px 3px hsl(358, 90%, 63%);
+    }
+    16% {
+        text-shadow: -1px -3px hsl(252, 100%, 50%), 7px 3px hsl(358, 90%, 63%);
+    }
+    17% {
+        text-shadow: 1px 5px hsl(252, 100%, 50%), -20px 5px hsl(358, 90%, 63%);
+    }
+    18% {
+        text-shadow: -10px -2px hsl(252, 100%, 50%), 2px 3px hsl(358, 90%, 63%);
+    }
+    19% {
+        text-shadow: 3px 1px hsl(252, 100%, 50%), -2px 5px hsl(358, 90%, 63%);
+    }
+    20% {
+        text-shadow: 1px 2px hsl(252, 100%, 50%), -2px -3px hsl(358, 90%, 63%);
+    }
+    21% {
+        text-shadow: -0px -0px hsl(252, 100%, 50%), 0px 0px hsl(358, 90%, 63%);
     }
     
 }

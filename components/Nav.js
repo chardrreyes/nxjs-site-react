@@ -1,4 +1,4 @@
-import styles from '../../styles/Nav.module.css';
+import styles from '../styles/Nav.module.css';
 import { AiOutlineSearch, AiOutlineBell } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 import { IconContext } from "react-icons";
@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router'
 import { useDebouncedCallback } from 'use-debounce';
 import Link from 'next/link';
-import Image from 'next/image';
 
 
 const Nav = () => {
@@ -55,6 +54,8 @@ const Nav = () => {
             <h2 className={isInitiliazed ? `${styles.nav_brand} ${styles.nav_show}`  : `${styles.nav_brand}`}>TESTFLIX</h2>
             <div className={styles.left_nav}>
                 <span className={isInitiliazed ? `${styles.nav_router} ${styles.nav_show}`  : `${styles.nav_router}`}><Link href="/">Home</Link></span>
+                <span className={isInitiliazed ? `${styles.nav_router} ${styles.nav_show}`  : `${styles.nav_router}`}><Link href="/">Movies</Link></span>
+                <span className={isInitiliazed ? `${styles.nav_router} ${styles.nav_show}`  : `${styles.nav_router}`}><Link href="/">Series</Link></span>
             </div>
 
             <div className={styles.right_nav} >
@@ -75,6 +76,9 @@ const Nav = () => {
                     <span className={styles.notification_count}>
                         1
                     </span>
+                    {/* <div className={styles.notification_container}>
+                        TEST
+                    </div> */}
                 </span>
 
                 <span className={styles.notification_bell}>
